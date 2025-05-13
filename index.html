@@ -35,9 +35,9 @@
             font-weight: bold;
             color: #007BFF;
             white-space: nowrap;
-            position: absolute;
-            top: 150px; /* Vị trí chữ cách trên 150px */
-            left: 100%; /* Bắt đầu từ ngoài màn hình bên phải */
+            position: relative;
+            margin-top: 20px; /* Đặt khoảng cách giữa ảnh và chữ */
+            text-align: center; /* Căn giữa chữ */
         }
 
         /* Media Queries cho các thiết bị có màn hình nhỏ (Điện thoại) */
@@ -48,7 +48,6 @@
 
             .moving-text {
                 font-size: 16px;
-                top: 120px; /* Đưa chữ lên gần hơn với ảnh */
             }
         }
 
@@ -60,7 +59,6 @@
 
             .moving-text {
                 font-size: 20px;
-                top: 150px; /* Vị trí chữ cách trên 150px */
             }
         }
     </style>
