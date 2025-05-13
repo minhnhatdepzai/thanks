@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm ơn đã mua xu from Doremon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            position: relative;
+            overflow: hidden; /* Ẩn phần chữ khi ra ngoài màn hình */
+        }
+
+        .thank-you-message {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .doremon-image {
+            margin-bottom: 20px;
+        }
+
+        .doremon-image img {
+            width: 100%; /* Hình ảnh sẽ co giãn theo chiều rộng của màn hình */
+            max-width: 300px; /* Giới hạn kích thước tối đa của ảnh */
+            height: auto;
+        }
+
+        .moving-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            white-space: nowrap;
+            position: absolute;
+            top: 150px; /* Vị trí chữ cách trên 150px */
+            left: 100%; /* Bắt đầu từ ngoài màn hình bên phải */
+        }
+
+        /* Media Queries cho các thiết bị có màn hình nhỏ (Điện thoại) */
+        @media screen and (max-width: 768px) {
+            .thank-you-message {
+                font-size: 18px;
+            }
+
+            .moving-text {
+                font-size: 16px;
+                top: 120px; /* Đưa chữ lên gần hơn với ảnh */
+            }
+        }
+
+        /* Media Queries cho các thiết bị có màn hình lớn (Máy tính để bàn) */
+        @media screen and (min-width: 769px) {
+            .thank-you-message {
+                font-size: 24px;
+            }
+
+            .moving-text {
+                font-size: 20px;
+                top: 150px; /* Vị trí chữ cách trên 150px */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-message">
+        Cảm ơn bạn đã mua xu từ Doremon!
+    </div>
+
+    <div class="doremon-image">
+        <img src="Doremon.jpg" alt="Doremon">
+    </div>
+
+    <div class="moving-text" id="moving-text">
+        Cảm ơn chị rất nhiều và chúc chị luôn may mắn và quay lại với em những lần giao dịch sau!
+    </div>
+
+    <script>
+        // JavaScript để tạo hiệu ứng chữ di chuyển
+        const movingText = document.getElementById('moving-text');
+        let position = window.innerWidth; // Bắt đầu từ ngoài màn hình bên phải
+        let direction = -2; // Di chuyển sang trái
+
+        function moveText() {
+            position += direction;
+            movingText.style.left = position + 'px'; // Di chuyển chữ sang trái
+
+            // Nếu chữ đã ra khỏi màn hình bên trái, reset lại vị trí
+            if (position < -movingText.offsetWidth) {
+                position = window.innerWidth;
+            }
+
+            requestAnimationFrame(moveText); // Lặp lại chuyển động
+        }
+
+        moveText(); // Bắt đầu hiệu ứng chuyển động
+    </script>
+</body>
+</html>
